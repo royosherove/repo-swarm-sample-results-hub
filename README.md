@@ -4,4 +4,7 @@ This is the twin repo of [Repo-Swarm](https://github.com/royosherove/repo-swarm)
 # How to Query this repo
 1. Open in Cursor
 2. Open Cursor Chat
-3. Type /report "find me all the monitoring tools used in our repositories" (as an example)
+3. use the /report command like so:
+```
+/report find me all the monitoring tools used in our repositories.
+```
