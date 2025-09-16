@@ -1,0 +1,11 @@
+---
+alwaysApply: true
+---
+# **Critical Instruction**
+
+when searching for information, do NOT use information found under "reports" folder or "prompts" folder or any of their subfolder.
+
+- [root]/reports/[ignore-anything here]
+- [root]/prompts/[ignore-anything here]
+- [root]/analysis_outputs/[ignore-anything here]
+- [root]/diagrams/[ignore-anything here]
