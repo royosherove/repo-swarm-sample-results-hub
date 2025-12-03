@@ -14,14 +14,15 @@ description: Create a new report from a natural language request
 - **No hallucinations**: Uncertain information goes in "⚠️ Unverified Items" section
 - **Name normalization**: Treat variants as identical (e.g., `llamaindex` = `llama-index`)
 - **Search in files**: search across ALL repos always initially. do not use repo names to decide what should or should not be investigates, since repos can contain things that might not seem related to their name. i.e if you search for "dog", you should not filter for repos whoes names contain dog, but search "dog" inside all arch.md files.
-- **Verification**: Double-check for false positives and missing information
+- **Multiple search passes might be needed**: If you are searching for something that might have depdenencies or two way usages across mutiple servies, you might need to use cli tools multiple passes to search both the producers and then the consumers of something)
+- **Verification**: Double-check for false positives and missing information. note that sometimes in an arch file an item is reported as :searched for", even ift was not found, as part of the disclosure process. so make sure the file mentions it was found, not just searched for. so it should not be counted if it is not specificlaly found.
 
 ## Execution Process
 
 ### Phase 1: Planning
 1. Create `report/.memory/REPORT_PLAN.md`
 2. Document:
-   - Search strategy
+   - Search strategy (IMPORTANT) (might include multiple pases to find collaborating parties such as publishers and subscribers, consumers and producers)
    - Files to analyze
    - Expected output structure
    - CLI tools needed (from your rules or in `mise.toml`)
@@ -49,7 +50,7 @@ description: Create a new report from a natural language request
 
 [Use sub-groupings if multiple hierarchy levels exist]
 
-## Architecture Diagram
+## Architecture Diagram 
 [Include Mermaid diagram ONLY if relationships exist between items]
 
 ## Detailed Findings
@@ -88,6 +89,9 @@ Before finalizing, verify:
 - [ ] `architecture-hub.arch.md` excluded (unless requested)
 - [ ] Plan file updated with final status
 - [ ] Diagram included only if relationships exist
+- [ ] Diagram should be dark mode compatible
+- [ ] Diagram in mermaid is the MOST COMPATIBLE so it will render anywhere (avoid errors like "Parse error on line xx:
+Expecting 'AMP', 'COLON', 'PIPE', 'TESTSTR', 'DOWN', 'DEFAULT', 'NUM', 'COMMA', 'NODE_STRING', 'BRKT', 'MINUS', 'MULT', 'UNICODE_TEXT', got 'LINK_ID'")
 
 ## Tool Usage
 - Leverage CLI tools from cursor rules
